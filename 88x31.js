@@ -1,3 +1,10 @@
+// 88x31 for those who prefer reduced motion
+// • hover to play animated gif, unhover to pause
+// • compatible with netscape 4+ and ie 5+ (4+?)
+// • usage: <img src=".../paused/.../foo.gif">
+//     • paused version goes in .../paused/.../foo.gif
+//     • animated version goes in .../.../foo.gif
+
 for (var i = 0; i < document.images.length; i++) {
     var image = document.images[i];
     if (image.src.lastIndexOf("/paused/") == image.src.lastIndexOf("/") - "/paused".length) {
