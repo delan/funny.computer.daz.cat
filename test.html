@@ -1,0 +1,256 @@
+<!doctype html><meta charset=utf-8>
+<link rel=stylesheet href=/style.css>
+<title>the funny computer museum</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+header, nav, footer {
+    display: block;
+}
+html {
+    overflow-y: scroll;
+    max-width: 1024px;
+    margin: 0 auto;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+header, nav, footer, h1, h2, h3, h4, h5, h6, th {
+    font-family: Comic Neue, Comic Sans MS, sans-serif;
+}
+header {
+    line-height: 1;
+}
+header a {
+    text-decoration: none;
+    color: initial;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+nav li {
+    display: inline-block;
+    margin-left: -1px;
+}
+nav a {
+    display: inline-block;
+    border: 1px solid #663399;
+    padding: 0.5em;
+}
+pre {
+    font-family: monospace, monospace;
+}
+a {
+    color: #663399;
+}
+th {
+    text-align: left;
+}
+._88x31 {
+    text-align: center;
+}
+._88x31 img {
+    width: 88px;
+    image-rendering: pixelated;
+    line-height: 1;
+    vertical-align: middle;
+}
+@media (min-width: 512px) {
+    ._88x31 .row {
+        display: block;
+    }
+}
+@media (min-width: 960px) {
+    ._88x31 img {
+        width: 176px;
+    }
+}
+</style>
+<body background=/common/bg16e.png>
+<header><center><h1 style=display:inline-block>
+    <div style=text-align:left><font size=5 color=#808080>the </font></div>
+    <a href="/"><font size=7>funny computer</font></a>
+    <div style=text-align:right><font size=5 color=#808080> museum</font></div>
+</h1></center></header>
+<nav><ul>
+<li><a href="/">home</a>
+<li><a href="/sun/">Sun workstations</a>
+</ul></nav>
+<hr>
+<style>
+    * { image-rendering: auto; }
+    :root { image-rendering: pixelated; background: url(/common/bg16l.png); }
+    @media (min-width: 960px) {
+        :root { background-size: 32px; }
+    }
+</style>
+
+<canvas width="16" height="16" style="image-rendering: pixelated; border: 2px solid rebeccapurple;"></canvas>
+<div style="display: inline-flex; border: 2px solid green;"><img width="16" height="16" style="image-rendering: pixelated;"></div>
+<script>
+    const canvas = document.querySelector("canvas");
+    const c = canvas.getContext("2d", {willReadFrequently: true});
+    // const B = "#bfcbd7", F = "#718ba5", M = "#9bb1c7";
+    // const B = "#bfcbd7", F = "#9bb1c7", M = "#acbdcd";
+    const B = "#9bb1c7", F = "#acbdcd", M = "#bfcbd7";
+    const W = canvas.width, H = canvas.height;
+    const cell = [...Array(W/2).keys()].map(x => [...Array(H/2).keys()].map(x => false));
+    function rand(n) {
+        return Math.floor(Math.random()*n);
+    }
+    function clampX(x) {
+        return (x % (W/2) + W/2) % (W/2);
+    }
+    function clampY(y) {
+        return (y % (H/2) + H/2) % (H/2);
+    }
+    function clampC([x, y]) {
+        x = (x % W + W) % W;
+        y = (y % H + H) % H;
+        return [x, y];
+    }
+    function visited(x, y) {
+        // if (x < 0 || x >= W/2) return true;
+        // if (y < 0 || y >= H/2) return true;
+        return cell[clampX(x)][clampY(y)];
+    }
+    function shuffle(array) {
+        for (let i = 0; i < array.length * 2; i++) {
+            const j = rand(array.length);
+            const k = rand(array.length);
+            const swap = array[j];
+            array[j] = array[k];
+            array[k] = swap;
+        }
+        return array;
+    }
+    function maze(x, y) {
+        cell.forEach(x => x.forEach((y, i) => x[i] = false));
+        c.fillStyle = F;
+        c.fillRect(0, 0, W, H);
+        c.fillStyle = B;
+        for (let x = 0; x < W/2; x++)
+            for (let y = 0; y < H/2; y++)
+                c.fillRect(x*2, y*2, 1, 1);
+        const stack = [];
+        const queue = [[x, y]];
+        while (queue.length > 0) {
+            const [x, y] = queue.pop();
+            if (visited(x, y)) continue;
+            cell[x][y] = true;
+            if (stack.length > 0) {
+                const [p, q] = stack.pop();
+                const u = x == 0 && p == W/2-1 || x == W/2-1 && p == 0
+                    ? W-1 : (x*2+p*2)/2;
+                const v = y == 0 && q == H/2-1 || y == H/2-1 && q == 0
+                    ? H-1 : (y*2+q*2)/2;
+                c.fillRect(u, v, 1, 1);
+            }
+            const candidates = shuffle([[x-1, y], [x+1, y], [x, y-1], [x, y+1]])
+                .filter(([x, y]) => !visited(x, y));
+            for (const [p, q] of candidates) {
+                queue.push([clampX(p), clampY(q)]);
+                stack.push([x, y]);
+            }
+        }
+    }
+    function getPixel(image, x, y) {
+        if (x < 0 || y < 0 || x >= W || y >= H)
+            return null;
+        const raw = image.data.slice(4 * (W * y + x), 4 * (W * y + x) + 4);
+        return `#${raw[0].toString(16).padStart(2,0)}${raw[1].toString(16).padStart(2,0)}${raw[2].toString(16).padStart(2,0)}${raw[3].toString(16).padStart(2,0)}`;
+    }
+    function floodFill(x, y, color) {
+        if (!/#[0-9A-fa-f]{6}/.test(color)) throw void 0;
+        const r = parseInt(color.substr(1,2), 16);
+        const g = parseInt(color.substr(3,2), 16);
+        const b = parseInt(color.substr(5,2), 16);
+        const image = c.getImageData(0, 0, W, H);
+        c.fillStyle = color;
+        const old = getPixel(image, x, y);
+        if (old == color) return;
+        const stack = [[x, y]];
+        const done = new Set;
+        while (stack.length > 0) {
+            // if (stack.length > W*H) throw 1;
+            const [x, y] = clampC(stack.pop());
+            done.add(JSON.stringify([x, y]));
+            if (getPixel(image, x, y) != old) continue;
+            image.data[4 * (W * y + x) + 0] = r;
+            image.data[4 * (W * y + x) + 1] = g;
+            image.data[4 * (W * y + x) + 2] = b;
+            image.data[4 * (W * y + x) + 3] = 0xff;
+            c.fillRect(x, y, 1, 1);
+            if (!done.has(JSON.stringify(clampC([x - 1, y])))) stack.push([x - 1, y]);
+            if (!done.has(JSON.stringify(clampC([x + 1, y])))) stack.push([x + 1, y]);
+            if (!done.has(JSON.stringify(clampC([x, y - 1])))) stack.push([x, y - 1]);
+            if (!done.has(JSON.stringify(clampC([x, y + 1])))) stack.push([x, y + 1]);
+        }
+    }
+    canvas.addEventListener("click", async () => {
+        const candidates = [];
+        const attempts = 30;
+        for (let attempt = 0; attempt < attempts; attempt++) {
+            maze(rand(W/2), rand(H/2));
+            for (let i = 0; i < 1 + rand(Math.min(attempt,Math.sqrt(W))); i++) {
+                floodFill(rand(W/2)*2+0, rand(H/2)*2+0, M);
+                floodFill(rand(W/2)*2+1, rand(H/2)*2+1, M);
+            }
+            await paint();
+            candidates.push(canvas.toDataURL());
+            console.log(`${attempt+1}/${attempts}`);
+        }
+        candidates.sort((p, q) => q.length - p.length);
+        console.log(candidates.map(x => x.length));
+        document.documentElement.style.backgroundImage = `url(${candidates[0]})`;
+        canvas.nextElementSibling.firstElementChild.src = candidates[0];
+    });
+    async function paint() {
+        return new Promise(resolve => requestAnimationFrame(t => resolve(t)));
+    }
+</script>
+<hr><footer>
+<p>last modified 2023-01-26T11:49Z
+<div class="_88x31">
+    <span class="row">
+        <img src="/88x31/cyber.dabamos.de/paused/acab.gif">
+        <img src="/88x31/cyber.dabamos.de/paused/zettai.gif">
+        <img src="/88x31/cyber.dabamos.de/paused/webpassion.gif">
+        <img src="/88x31/cyber.dabamos.de/paused/tyg.gif">
+    </span>
+    <span class="row">
+        <img src="/88x31/cyber.dabamos.de/paused/sun.gif">
+        <img src="/88x31/cyber.dabamos.de/paused/opera_bu.gif">
+        <img src="/88x31/cyber.dabamos.de/paused/vocaloid.gif">
+        <img src="/88x31/cyber.dabamos.de/paused/xenia.gif">
+    </span>
+    <span class="row">
+        <a href="http://sixte.st"><img src="/88x31/cyber.dabamos.de/paused/ipv6.gif"></a>
+        <a href="http://www.webstandards.org"><img src="/88x31/cyber.dabamos.de/paused/wspnow.gif"></a>
+        <img src="/88x31/cyber.dabamos.de/paused/w3c_ab.gif">
+        <img src="/88x31/cyber.dabamos.de/paused/nofuckingthanks.gif">
+    </span>
+    <span class="row">
+        <a href="http://cohost.org"><img src="/88x31/cohost.png"></a>
+        <a href="http://pouet.net"><img src="/88x31/cyber.dabamos.de/paused/pouet.gif"></a>
+        <img src="/88x31/cyber.dabamos.de/paused/letsnotencrypt.gif">
+        <a href="http://cyber.dabamos.de/88x31/"><img src="/88x31/cyber.dabamos.de/paused/88x31.gif"></a>
+    </span>
+    <span class="row">
+        <a href="http://asswolf.com"><img src="/88x31/cyber.dabamos.de/paused/asswolf_banner.gif"></a>
+        <a href="http://msx.gay"><img src="/88x31/cyber.dabamos.de/paused/msx.gif"></a>
+        <a href="http://easrng.net"><img src="/88x31/paused/easrng.gif"></a>
+        <a href="http://maia.crimew.gay"><img src="/88x31/maia.png"></a>
+    </span>
+    <span class="row">
+        <a href="http://bucket.daz.cat/uncifonts/"><img src="/88x31/original/monofurnow.gif"></a>
+    </span>
+    <!-- <span class="row">
+        <img src="/88x31/cyber.dabamos.de/paused/graphicdesign.gif">
+        <img src="/88x31/cyber.dabamos.de/paused/star-textless.gif">
+        <img src="/88x31/cyber.dabamos.de/paused/slogo.gif">
+    </span> -->
+</div>
+</footer>
+<script src=/88x31.js></script>

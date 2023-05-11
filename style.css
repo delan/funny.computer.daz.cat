@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+header, nav, footer {
+    display: block;
+}
+html {
+    overflow-y: scroll;
+    max-width: 1024px;
+    margin: 0 auto;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+header, nav, footer, h1, h2, h3, h4, h5, h6, th {
+    font-family: Comic Neue, Comic Sans MS, sans-serif;
+}
+header {
+    line-height: 1;
+}
+header a {
+    text-decoration: none;
+    color: initial;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+nav li {
+    display: inline-block;
+    margin-left: -1px;
+}
+nav a {
+    display: inline-block;
+    border: 1px solid #663399;
+    padding: 0.5em;
+}
+pre {
+    font-family: monospace, monospace;
+}
+a {
+    color: #663399;
+}
+th {
+    text-align: left;
+}
+._88x31 {
+    text-align: center;
+}
+._88x31 img {
+    width: 88px;
+    image-rendering: pixelated;
+    line-height: 1;
+    vertical-align: middle;
+}
+@media (min-width: 512px) {
+    ._88x31 .row {
+        display: block;
+    }
+}
+@media (min-width: 960px) {
+    ._88x31 img {
+        width: 176px;
+    }
+}
