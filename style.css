@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
 }
-header, nav, footer {
+header, nav, footer, hgroup {
     display: block;
 }
 html {
@@ -10,8 +10,17 @@ html {
     margin: 0 auto;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
-header, nav, footer, h1, h2, h3, h4, h5, h6, th {
+header, nav, footer, h1, h2, h3, h4, h5, h6, th, hgroup > p {
     font-family: Comic Neue, Comic Sans MS, sans-serif;
+}
+hgroup * {
+    display: inline;
+}
+hgroup p {
+    font-size: 1.5em;
+}
+hgroup p:before {
+    content: ", ";
 }
 header {
     line-height: 1;
@@ -42,6 +51,9 @@ a {
 }
 th {
     text-align: left;
+}
+hr {
+    clear: both;
 }
 ._88x31 {
     text-align: center;
