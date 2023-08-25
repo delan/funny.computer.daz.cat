@@ -2,12 +2,28 @@
 set -eu
 . ./pages.inc.sh
 
+if [ "$(stat -c \%n /dev/null 2> /dev/null)" = /dev/null ] \
+&& [ "$(date -ud \@0 +\%FT\%RZ 2> /dev/null)" = 1970-01-01T00:00Z ]; then
+    # gnu stat(1) + date(1)
+    mtime() {
+        date -ud \@$(stat -c \%Y -- "$1") +\%FT\%RZ
+    }
+elif [ "$(stat -f \%N /dev/null 2> /dev/null)" = /dev/null ] \
+&& [ "$(date -jr 0 +\%FT\%RZ 2> /dev/null)" = 1970-01-01T00:00Z ]; then
+    # bsd stat(1) + date(1)
+    mtime() {
+        date -jr $(stat -f \%m -- "$1") +\%FT\%RZ
+    }
+else
+    >&2 echo 'fatal: no compatible stat(1) + date(1)'
+    exit 1
+fi
+
 for i; do
     # works with openbsd ripgrep, which has no --pcre2
     title=$(< "$i.in.html" rg -o '<!-- \[title = .+\] -->' | sed -E 's/<!-- \[title = |\] -->$//g')
 
-    # only works with bsd stat(1), not gnu stat(1)
-    mtime=$(TZ= stat -f '%Sm' -t '%FT%RZ' -- "$i.in.html")
+    mtime=$(mtime "$i.in.html")
 
     sed '
         s/<!-- \[edit warning\] -->/<!-- WARNING: you probably want to edit the .in.html, not this file! -->/
