@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+header, nav, footer, hgroup {
+    display: block;
+}
+html {
+    overflow-y: scroll;
+    max-width: 1024px;
+    margin: 0 auto;
+    font-family: Atkinson Hyperlegible, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+header, nav, footer, h1, h2, h3, h4, h5, h6, th, hgroup > p {
+    font-family: Comic Neue, Comic Sans MS, sans-serif;
+}
+hgroup * {
+    display: inline;
+}
+hgroup p {
+    font-size: 1.5em;
+}
+hgroup p:before {
+    content: ", ";
+}
+header {
+    line-height: 1;
+}
+header a {
+    text-decoration: none;
+    color: initial;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+nav li {
+    display: inline-block;
+    margin-left: -1px;
+}
+nav a {
+    display: inline-block;
+    border: 1px solid #663399;
+    padding: 0.5em;
+}
+pre {
+    font-family: monospace, monospace;
+}
+a {
+    color: #663399;
+}
+th {
+    text-align: left;
+}
+hr {
+    clear: both;
+}
+._88x31 {
+    text-align: center;
+}
+._88x31 img {
+    width: 88px;
+    image-rendering: pixelated;
+    line-height: 1;
+    vertical-align: middle;
+}
+@media (min-width: 512px) {
+    ._88x31 .row {
+        display: block;
+    }
+}
+@media (min-width: 960px) {
+    ._88x31 img {
+        width: 176px;
+    }
+}
+@font-face {
+    font-family: Atkinson Hyperlegible;
+    src: url(/common/Atkinson-Hyperlegible-Regular-102.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: Atkinson Hyperlegible;
+    src: url(/common/Atkinson-Hyperlegible-Bold-102.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: Atkinson Hyperlegible;
+    src: url(/common/Atkinson-Hyperlegible-Italic-102.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: Atkinson Hyperlegible;
+    src: url(/common/Atkinson-Hyperlegible-BoldItalic-102.ttf);
+    font-weight: bold;
+    font-style: italic;
+}
