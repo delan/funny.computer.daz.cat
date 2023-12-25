@@ -1,9 +1,7 @@
 #!/bin/sh
 set -eu
-. ./pages.inc.sh
-
-for i; do
-    cp -- "$i.out.html" "$i.html"
-done
-
+rsync -a build/ production.new/
+mv production production.old
+mv production.new production
+rm -R production.old
 echo ok
