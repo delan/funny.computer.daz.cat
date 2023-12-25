@@ -60,11 +60,6 @@
   append = " | the funny computer museum"
   force = false
 
-[widgets.generator-meta]
-  widget = "insert_html"
-  html = '<meta name="generator" content="soupault">'
-  selector = "head"
-
 [widgets.mtime]
   widget = "exec"
   selector = "#mtime"
