@@ -47,9 +47,7 @@
   page_character_encoding = "utf-8"
 
 
-# It is possible to store pages in any format if you have a program
-# that converts it to HTML and writes it to standard output.
-# Example:
+# (not used yet)
 #[preprocessors]
 #  md = "cmark --unsafe --smart"
 #  adoc = "asciidoctor -o -"
@@ -66,3 +64,9 @@
   widget = "insert_html"
   html = '<meta name="generator" content="soupault">'
   selector = "head"
+
+[widgets.mtime]
+  widget = "exec"
+  selector = "#mtime"
+  command = './mtime.sh "$PAGE_FILE"'
+  parse = false
