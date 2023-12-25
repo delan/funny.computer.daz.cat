@@ -1,7 +1,6 @@
-<!-- [title = usb3sun, a usb input adapter for sun workstations | ] -->
-
-<hgroup>
-    <h1>usb3sun</h1><p>a usb input adapter for sun workstations</p>
+<hgroup class=title>
+    <h1>usb3sun</h1><p><span hidden style=display:none>,</span>
+    a usb input adapter for sun workstations
 </hgroup>
 
 <img src=revA2.jpg style=float:right;width:50%;margin:1em>

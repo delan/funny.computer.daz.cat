@@ -1,6 +1,4 @@
-<!-- [title = Sun workstations | ] -->
-
-<h1>Sun workstations</h1>
+<h1 class=title>Sun workstations</h1>
 
 <table border=1>
     <tr><th>name<th>kind<th>serial<th>works?<th>dumped?
