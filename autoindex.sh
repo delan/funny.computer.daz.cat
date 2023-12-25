@@ -4,14 +4,11 @@ set -eu -- \
 ;
 
 for i; do
-    mtime=$(TZ= stat -f '%Sm' -t '%FT%RZ' -- "$i")
-    > "$i/index.html" sed 's/<!-- \[title\] -->/\/'"$i"'\/ | /' header.inc.html
-    >> "$i/index.html" printf '<h1>/%s/</h1>\n' "$i"
-    >> "$i/index.html" printf '<table rules=cols cellpadding=4>\n'
-    >> "$i/index.html" printf '<tr><td>d<td>-<td><a href="..">.. (parent directory)</a>\n'
-    ls -l -- "$i" | sed -Ef autoindex.sed >> "$i/index.html"
-    >> "$i/index.html" printf '</table>\n'
-    >> "$i/index.html" sed 's/<!-- \[mtime\] -->/'"$mtime"'/' footer.inc.html
+    > "site/$i/index.in" printf '<h1 class=title>/%s/</h1>\n' "$i"
+    >> "site/$i/index.in" printf '<table rules=cols cellpadding=4>\n'
+    >> "site/$i/index.in" printf '<tr><td>d<td>-<td><a href="..">.. (parent directory)</a>\n'
+    ls -l -- "$i" | sed -Ef autoindex.sed >> "site/$i/index.in"
+    >> "site/$i/index.in" printf '</table>\n'
 done
 
 echo ok
