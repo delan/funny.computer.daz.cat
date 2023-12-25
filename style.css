@@ -8,7 +8,7 @@ html {
     overflow-y: scroll;
     max-width: 1024px;
     margin: 0 auto;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: Atkinson Hyperlegible, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 header, nav, footer, h1, h2, h3, h4, h5, h6, th, hgroup > p {
     font-family: Comic Neue, Comic Sans MS, sans-serif;
@@ -73,4 +73,28 @@ hr {
     ._88x31 img {
         width: 176px;
     }
+}
+@font-face {
+    font-family: Atkinson Hyperlegible;
+    src: url(/common/Atkinson-Hyperlegible-Regular-102.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: Atkinson Hyperlegible;
+    src: url(/common/Atkinson-Hyperlegible-Bold-102.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: Atkinson Hyperlegible;
+    src: url(/common/Atkinson-Hyperlegible-Italic-102.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: Atkinson Hyperlegible;
+    src: url(/common/Atkinson-Hyperlegible-BoldItalic-102.ttf);
+    font-weight: bold;
+    font-style: italic;
 }
