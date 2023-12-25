@@ -24,22 +24,25 @@ else
     exit 1
 fi
 
-mtime=$(mtime "$1")
+result() {
+    iso8601 "$1" | tr -d \\n
+}
+
+# If the file is dirty or unknown to git, use the file mtime only,
+# because any dates in git may be wrong.
+if [ -n "$(git status -z -- "$1" | tr \\0 \\n)" ]; then
+    result $(mtime "$1")
+    exit
+fi
+
+# Otherwise, use the git author or commit date, whichever is newer,
+# but ignore the file mtime because it may be wrong.
 author_date=$(git log -n1 --pretty=format:\%at -- "$1")
 commit_date=$(git log -n1 --pretty=format:\%ct -- "$1")
-
-mtime=${mtime:-0}
 author_date=${author_date:-0}
 commit_date=${commit_date:-0}
-
->&2 echo "mtime is $mtime"
-if [ $author_date -gt $mtime ]; then
-    >&2 echo "git author date is newer! $author_date"
-    mtime=$author_date
+if [ $author_date -gt $commit_date ]; then
+    result $author_date
+else
+    result $commit_date
 fi
-if [ $commit_date -gt $mtime ]; then
-    >&2 echo "git commit date is newer! $commit_date"
-    mtime=$commit_date
-fi
-
-iso8601 $mtime | tr -d \\n
