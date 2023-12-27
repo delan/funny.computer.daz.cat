@@ -1,15 +1,28 @@
 <style>
     * { image-rendering: auto; }
-    :root { image-rendering: pixelated; background: url(/common/bg16l.png); }
+    :root { image-rendering: pixelated; background: url(/common/bg16e2x.png); }
     @media (min-width: 960px) {
         :root { background-size: 32px; }
     }
-</style>
 
-<canvas width="16" height="16" style="image-rendering: pixelated; border: 2px solid rebeccapurple;"></canvas>
-<div style="display: inline-flex; border: 2px solid green;"><img width="16" height="16" style="image-rendering: pixelated;"></div>
+    main canvas, main img {
+        image-rendering: pixelated;
+        width: 66px;
+        height: 66px;
+    }
+    main canvas {
+        border: 2px solid rebeccapurple;
+    }
+    main img {
+        border: 2px solid green;
+    }
+</style>
+<p><canvas width="16" height="16"></canvas> = candidate
+<p><img id="result" width="16" height="16"> = result
 <script>
-    const canvas = document.querySelector("canvas");
+    const main = document.querySelector("main");
+    const canvas = document.querySelector("main canvas");
+    const img = document.querySelector("#result");
     const c = canvas.getContext("2d", {willReadFrequently: true});
     // const B = "#bfcbd7", F = "#718ba5", M = "#9bb1c7";
     // const B = "#bfcbd7", F = "#9bb1c7", M = "#acbdcd";
@@ -108,7 +121,7 @@
             if (!done.has(JSON.stringify(clampC([x, y + 1])))) stack.push([x, y + 1]);
         }
     }
-    canvas.addEventListener("click", async () => {
+    main.addEventListener("click", async () => {
         const candidates = [];
         const attempts = 30;
         for (let attempt = 0; attempt < attempts; attempt++) {
@@ -124,7 +137,7 @@
         candidates.sort((p, q) => q.length - p.length);
         console.log(candidates.map(x => x.length));
         document.documentElement.style.backgroundImage = `url(${candidates[0]})`;
-        canvas.nextElementSibling.firstElementChild.src = candidates[0];
+        img.src = candidates[0];
     });
     async function paint() {
         return new Promise(resolve => requestAnimationFrame(t => resolve(t)));
