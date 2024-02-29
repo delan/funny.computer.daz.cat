@@ -13,6 +13,9 @@
     <tr><td>VAXstation 3100 M38 (<i>naiad</i>)<td>?<td>?<td>?<td><td>
     <tr><td>DEC 3000 (<i>rigel</i>)<td>?<td>?<td>?<td><td>
     <tr><td>AlphaStation 500/266<td>ZG61800020<td>no<td>yes<td>bad psu<td>
+    <tr><th>Sony machines<th>serial<th>works?<th>dumped?<th>comment<th>writeups
+    <tr><td>PSX<td>?<td>yes<td>yes<td><td><a href=https://blog.nroach44.id.au/011-sony-psx.html>[29]</a>
+    <tr><td>PS2 (SCPH-10000)<td>?<td>yes<td>n/a<td><td><a href=https://blog.nroach44.id.au/snippet-ps2-10k230v.html>[30]</a>
 </table>
 
 <h2>writeups</h2>
@@ -45,6 +48,8 @@
 <li><a href=https://cohost.org/delan/post/1650431-usb3sun-rev-a1-a-us>usb3sun rev A1, a usb input adapter for sun workstations</a> (dna)
 <li><a href=https://cohost.org/delan/post/2042852-usb3sun-rev-a2-now>usb3sun rev A2, now with easy firmware updates!</a> (da)
 <li><a href=https://cohost.org/delan/post/2973101-usb3sun-rev-a3-guar>usb3sun rev A3, guaranteed to not hurt your eyes!</a> (dnp)
+<li><a href=https://blog.nroach44.id.au/011-sony-psx.html>The SONY PSX - DVR / DESR - Owning one in 2023+</a> (n)
+<li><a href=https://blog.nroach44.id.au/snippet-ps2-10k230v.html>Modifying a PlayStation 2 (SCPH-10000) power supply for 230V</a> (n)
 </ol>
 
 <h2>utilities</h2>
