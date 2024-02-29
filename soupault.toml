@@ -71,3 +71,6 @@
   selector = "#source-link"
   link_text = "source"
   repo_base = "https://github.com/delan/funny.computer.daz.cat/tree/default/"
+
+[widgets.writeups]
+  widget = "writeups"
