@@ -3,7 +3,8 @@
     a usb input adapter for sun workstations
 </hgroup>
 
-<img src=revA3.jpg style=float:right;width:50%;margin:1em>
+<img src=revA3_0.jpg style=float:right;clear:right;width:50%;margin:1em>
+<img src=revA3.jpg style=float:right;clear:right;width:50%;margin:1em>
 
 <p>SPARCstations have a unique serial-like interface for keyboard and mouse input, using a single 8-pin mini-din port.
 <p>usb3sun allows you to use an ordinary USB keyboard and mouse with your sun workstation!
