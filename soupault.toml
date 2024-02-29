@@ -65,3 +65,9 @@
   selector = "#mtime"
   command = './mtime.sh "$PAGE_FILE"'
   parse = false
+
+[widgets.source-link]
+  widget = "source-link"
+  selector = "#source-link"
+  link_text = "source"
+  repo_base = "https://github.com/delan/funny.computer.daz.cat/tree/default/"
