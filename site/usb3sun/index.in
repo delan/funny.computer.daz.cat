@@ -3,13 +3,13 @@
     a usb input adapter for sun workstations
 </hgroup>
 
-<img src=revA3_0.jpg style=float:right;clear:right;width:50%;margin:1em>
+<img src=revB0.jpg style=float:right;clear:right;width:50%;margin:1em>
 <img src=revA3.jpg style=float:right;clear:right;width:50%;margin:1em>
 
 <p>SPARCstations have a unique serial-like interface for keyboard and mouse input, using a single 8-pin mini-din port.
 <p>usb3sun allows you to use an ordinary USB keyboard and mouse with your sun workstation!
 
-<p><b>check out <a href="https://cohost.org/delan/post/2973101-usb3sun-rev-a3-guar">our new writeup</a> about rev A3!</b>
+<p><b>check out <a href="https://cohost.org/delan/post/6029886-usb3sun-rev-b0-a-us">our new writeup</a> about rev B0!</b>
 
 <ul>
     <li><b><a href="https://www.tindie.com/products/funnycomputer/usb3sun/">buy now</a> on tindie</b>
@@ -21,6 +21,8 @@
         <li><a href="https://cohost.org/delan/post/1650431-usb3sun-rev-a1-a-us">the development of rev A1</a>
         <li><a href="https://cohost.org/delan/post/2042852-usb3sun-rev-a2-now">the development of rev A2</a>
         <li><a href="https://cohost.org/delan/post/2973101-usb3sun-rev-a3-guar">the development of rev A3</a>
+        <li><a href="https://cohost.org/delan/post/5806830-usb3sun-2-0-faster">the development of firmware 2.0</a>
+        <li><a href="https://cohost.org/delan/post/6029886-usb3sun-rev-b0-a-us">the development of rev B0</a>
     </ul>
 </ul>
 
