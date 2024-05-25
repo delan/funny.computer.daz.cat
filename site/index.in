@@ -2,40 +2,40 @@
 <table border=1>
     <tr><th>PC machines<th>serial<th>works?<th>dumped?<th>comment<th>writeups
     <tr><td>Compaq Proliant 800<td>?<td>yes<td>yes<td><td
-        ><a class=writeup href=https://twitter.com/dazabani/status/1373493223620894728>[4]</a
-        ><a class=writeup href=https://twitter.com/dazabani/status/1376063700281425925>[6]</a
-        ><a class=writeup href=https://twitter.com/dazabani/status/1376546062572261383>[7]</a
-        ><a class=writeup href=https://twitter.com/dazabani/status/1376926589741494275>[8]</a
-        ><a class=writeup href=https://twitter.com/dazabani/status/1377139727510331394>[9]</a
-        ><a class=writeup href=https://twitter.com/dazabani/status/1377289878350667781>[10]</a
+        ><a class=writeup href=https://twitter.com/dazabani/status/1373493223620894728>[?]</a
+        ><a class=writeup href=https://twitter.com/dazabani/status/1376063700281425925>[?]</a
+        ><a class=writeup href=https://twitter.com/dazabani/status/1376546062572261383>[?]</a
+        ><a class=writeup href=https://twitter.com/dazabani/status/1376926589741494275>[?]</a
+        ><a class=writeup href=https://twitter.com/dazabani/status/1377139727510331394>[?]</a
+        ><a class=writeup href=https://twitter.com/dazabani/status/1377289878350667781>[?]</a
         >
     <tr><th>Sun machines<th>serial<th>works?<th>dumped?<th>comment<th>writeups
     <tr><td>SPARCstation IPC<td>131F2926<td>yes<td>yes<td>psu has leaky caps<td
-        ><a class=writeup href=https://cohost.org/delan/post/219990-sunny-computers>[21]</a
-        ><a class=writeup href=https://cohost.org/delan/post/488967-sunny-computers-par>[23]</a
-        ><a class=writeup href=https://cohost.org/delan/post/1308046-sunny-computers-par>[28]</a
+        ><a class=writeup href=https://cohost.org/delan/post/219990-sunny-computers>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/488967-sunny-computers-par>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/1308046-sunny-computers-par>[?]</a
         >
     <tr><td>SPARCstation IPC<td>134F2609<td>yes<td>?<td>psu severely damaged by cap leaks<br>hdd unresponsive<td
-        ><a class=writeup href=https://cohost.org/delan/post/219990-sunny-computers>[21]</a
-        ><a class=writeup href=https://cohost.org/delan/post/488967-sunny-computers-par>[23]</a
-        ><a class=writeup href=https://cohost.org/delan/post/1308046-sunny-computers-par>[28]</a
+        ><a class=writeup href=https://cohost.org/delan/post/219990-sunny-computers>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/488967-sunny-computers-par>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/1308046-sunny-computers-par>[?]</a
         >
     <tr><td>SPARCstation 5 (<i>borealis</i>)<td>507FA05C<td>yes<td>yes<td>needs new nvram battery<td
-        ><a class=writeup href=https://cohost.org/delan/post/219990-sunny-computers>[21]</a
-        ><a class=writeup href=https://cohost.org/delan/post/488967-sunny-computers-par>[23]</a
-        ><a class=writeup href=https://cohost.org/delan/post/787278-usb3sun-a-usb-input>[24]</a
-        ><a class=writeup href=https://cohost.org/delan/post/852798-sunny-computers-par>[25]</a
-        ><a class=writeup href=https://cohost.org/delan/post/1308046-sunny-computers-par>[28]</a
+        ><a class=writeup href=https://cohost.org/delan/post/219990-sunny-computers>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/488967-sunny-computers-par>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/787278-usb3sun-a-usb-input>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/852798-sunny-computers-par>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/1308046-sunny-computers-par>[?]</a
         >
     <tr><td>SPARCstation 5 (<i>australis</i>)<td>538F1242<td>yes<td>yes<td>needs new nvram battery<td
-        ><a class=writeup href=https://cohost.org/delan/post/219990-sunny-computers>[21]</a
-        ><a class=writeup href=https://cohost.org/delan/post/488967-sunny-computers-par>[23]</a
-        ><a class=writeup href=https://cohost.org/delan/post/1308046-sunny-computers-par>[28]</a
-        ><a class=writeup href=https://cohost.org/delan/post/1650431-usb3sun-rev-a1-a-us>[29]</a
+        ><a class=writeup href=https://cohost.org/delan/post/219990-sunny-computers>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/488967-sunny-computers-par>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/1308046-sunny-computers-par>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/1650431-usb3sun-rev-a1-a-us>[?]</a
         >
     <tr><td>Ultra 5<td>FW84450552<td>yes<td>yes<td><td
-        ><a class=writeup href=https://cohost.org/delan/post/219990-sunny-computers>[21]</a
-        ><a class=writeup href=https://cohost.org/delan/post/488967-sunny-computers-par>[23]</a
+        ><a class=writeup href=https://cohost.org/delan/post/219990-sunny-computers>[?]</a
+        ><a class=writeup href=https://cohost.org/delan/post/488967-sunny-computers-par>[?]</a
         >
     <tr><th>DEC machines<th>serial<th>works?<th>dumped?<th>comment<th>writeups
     <tr><td>MicroVAX 3100<td>?<td>?<td>?<td><td>
@@ -44,16 +44,16 @@
     <tr><td>AlphaStation 500/266<td>ZG61800020<td>no<td>yes<td>bad psu<td>
     <tr><th>Osborne machines<th>serial<th>works?<th>dumped?<th>comment<th>writeups
     <tr><td>Osborne 1<td>?<td>yes<td>n/a<td><td
-        ><a class=writeup href=https://blog.nroach44.id.au/osborne-one-restoration.html>[22]</a
-        ><a class=writeup href=https://blog.nroach44.id.au/snippet-osborneone-kermit.html>[26]</a
-        ><a class=writeup href=https://blog.nroach44.id.au/snippet-osborneone-blankdiskimages.html>[27]</a
+        ><a class=writeup href=https://blog.nroach44.id.au/osborne-one-restoration.html>[?]</a
+        ><a class=writeup href=https://blog.nroach44.id.au/snippet-osborneone-kermit.html>[?]</a
+        ><a class=writeup href=https://blog.nroach44.id.au/snippet-osborneone-blankdiskimages.html>[?]</a
         >
     <tr><th>Sony machines<th>serial<th>works?<th>dumped?<th>comment<th>writeups
     <tr><td>PSX<td>?<td>yes<td>yes<td><td
-        ><a class=writeup href=https://blog.nroach44.id.au/011-sony-psx.html>[32]</a
+        ><a class=writeup href=https://blog.nroach44.id.au/011-sony-psx.html>[?]</a
         >
     <tr><td>PS2 (SCPH-10000)<td>?<td>yes<td>n/a<td><td
-        ><a class=writeup href=https://blog.nroach44.id.au/snippet-ps2-10k230v.html>[33]</a
+        ><a class=writeup href=https://blog.nroach44.id.au/snippet-ps2-10k230v.html>[?]</a
         >
 </table>
 
